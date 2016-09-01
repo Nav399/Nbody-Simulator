@@ -61,7 +61,7 @@ function addGalaxy(x,y,radius,count,vx,vy,direction,mass,radii,centerM,centerR) 
 		//Set angle relative to the center of the galaxy to place body
 		var angle = Math.random() * Math.PI * 2;
 		//Set distance from center to place it
-		var rad = getRandomNum(centerR+(radii*2), radius);
+		var rad = getRandomNum((centerR+centerR)+(radii*2), radius);
 		//	var rad = Math.sqrt(rad);
 		//Convert radians to cartesian for input into 'makeParticle' function
 		var offset = Radians2Cartesian(rad,angle);
@@ -79,25 +79,11 @@ function addGalaxy(x,y,radius,count,vx,vy,direction,mass,radii,centerM,centerR) 
 		makeParticle(offset.x+x,offset.y+y,mass,radii,velocity.x+vx,velocity.y+vy,"white",true);
 	};
 };
-	
-function testparticles(pixwidth,pixheight) {
-	for (var i = 1; i < 21; i+=1) {
-		for (var j = 1; j < 51; j+=1) {
-			var body = {};
-			
-			wprop=(width/(pixwidth+1));
-			hprop=(height/(pixheight+1));
-			
-			body.x = j*(wprop);
-			body.y = i*(hprop);
-			body.vx = 0;
-			body.vy = 0;
-			body.ax = 0;
-			body.ay = 0;
-			body.m = 1;
-			body.radius = 1;
-			body.color = "white";
-			bodies.push(body);
+
+function CleanParticles(Xoffset,Yoffset) {
+	for (i = 0; i < bodies.length; i++) {
+		if (bodies[i].x<(0) || bodies[i].x>(width) || bodies[i].y<(0) || bodies[i].y>(height)) {
+			bodies.splice(i, 1);
 		};
 	};
 };

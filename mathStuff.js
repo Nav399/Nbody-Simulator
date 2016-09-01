@@ -97,4 +97,3 @@ function getFramerate() {
     lastLoop = thisLoop;
 	return Math.round(fps*1000)/1000;
 };
-
