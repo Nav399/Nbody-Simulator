@@ -2,8 +2,8 @@ function makeParticle(x,y,mass,radius,vx,vy,color,move) {
 	//Create body as an object
 	var body = {};
 		//Set coordinates of the body
-		body.x = x;
-		body.y = y;
+		body.pos.x = x;
+		body.pos.y = y;
 		//Set the mass of the body
 		body.m = mass;
 		//Set the radius to either auto-size or specified radius
@@ -13,11 +13,11 @@ function makeParticle(x,y,mass,radius,vx,vy,color,move) {
 			body.radius = radius;					//Body size is what was specified
 		};
 		//Set the initial velocity components of the body
-		body.vx = vx;
-		body.vy = vy;
+		body.vel.x = vx;
+		body.vel.y = vy;
 		//Set the initial acceleration components to zero
-		body.ax = 0;
-		body.ay = 0;
+		body.acc.x = 0;
+		body.acc.y = 0;
 		//Set body color
 		body.color = color;
 		//Declare that the body is movable
