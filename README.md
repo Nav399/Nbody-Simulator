@@ -11,4 +11,5 @@ Adaptation of an earlier Nbody simulation of mine. Just edited it real quickly t
 Upcoming changes:  
 Complete overhaul of the UI  
 Creating classes for particles  
-Adjustments in collision resolution
+Adjustments in collision resolution  
+Camera movements and following the center of mass as well as zooming
