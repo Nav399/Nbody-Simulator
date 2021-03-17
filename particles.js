@@ -1,6 +1,6 @@
 function makeParticle(x,y,mass,radius,vx,vy,color,move) {
 	//Create body as an object
-	var body = {};
+	var body = {pos:{},vel:{},acc:{}};
 		//Set coordinates of the body
 		body.pos.x = x;
 		body.pos.y = y;
