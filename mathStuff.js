@@ -8,7 +8,7 @@ class _vector {
 }
 
 function chooseFromSet(a) {//wow this was so bad
-	Math.random()>0.5?return a.x:return a.y
+	return Math.random()>0.5?a.x:a.y
 }
 
 function dot(a,b) {//dot product of two vectors
