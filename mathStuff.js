@@ -1,43 +1,40 @@
-function chooseFromSet(set) {
-	i = getRandomNum(0,1);
-			if (i < .5) {
-				result = set[0]
-			} else {
-				result = set[1]
-			};
-	return result
+//shoudl move all of the math functions related to vectors into this function
+class _vector {
+	constructor(x,y/*,z*/) {
+		this.x = x;
+		this.y = y;
+		//z==undefined?1:this.z=z
+	}
 }
 
-function dot(set,set2)	{
-	return set[0]*set2[0]+set[1]*set2[1];
+function chooseFromSet(a) {//wow this was so bad
+	Math.random()>0.5?return a.x:return a.y
+}
+
+function dot(a,b) {//dot product of two vectors
+	return a.x*b.x+a.y*b.y;
 };
 
-function getLength(set)	{
-	return Math.sqrt(set[0]*set[0] + set[1]*set[1]);
+function mag(a) {//distance funtion but for only one vector AKA, magnitude
+	return Math.sqrt(a.x*a.x + a.y*a.y);
 };
 
-function add(set,set2)	{
-	return [(set[0]+set2[0]),(set[1]+set2[1])];
+function add(a,b) {//adds two vectors
+	return new _vector(a.x+b.x,a.y+b.y);
 };
 
-function subtract(set,set2)	{
-	return [(set[0]-set2[0]),(set[1]-set2[1])];
+function subtract(a,b) {//subtracts two vectors duh
+	return new _vector(a.x-b.x,a.y-b.y);
 };
 
-function multiply(set,scale)	{
-	return [(set[0]*scale),(set[1]*scale)]
+function multiply(a,s)	{//multiply vector by given scale
+	return new _vector(a.x*s,a.y*s)
 };
 
-function normalize(set)	{
-	var len = getLength(set);
-	if (len != 0)	{
-		set[0]=set[0]/len;
-		set[1]=set[1]/len;
-	} else {
-		set[0]=0;
-		set[1]=0;
-	}
-	return set;
+function normalize(set)	{//normalize a vecotr
+	var len = mag(set);
+	if (len != 0) return new _vector(set.x/len,set.y/len);//if the lenght isnt zero, return mag
+	return new _vector(0,0);//otherwise, its 0
 };
 
 function isOdd(num) { 
@@ -62,7 +59,7 @@ function FindForce(m,m1,r) {
 
 function FindDist(x,y,x1,y1) {
 	var dx = x - x1;
-    var dy = y - y1;
+	var dy = y - y1;
 	var Total = Math.sqrt(dx*dx + dy*dy)
 	return {
 		dx: dx,
