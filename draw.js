@@ -12,7 +12,7 @@ function draw() {
 	
 	for (i = 0; i < bodies.length; i++) {
 		ctx.beginPath();
-		ctx.arc(bodies[i].x,bodies[i].y, bodies[i].radius, 0, 2 * Math.PI);
+		ctx.arc(bodies[i].pos.x,bodies[i].pos.y, bodies[i].radius, 0, 2 * Math.PI);
 		ctx.strokeStyle=bodies[i].color;
 		ctx.stroke();
 	};
@@ -20,18 +20,18 @@ function draw() {
 		ctx.fillStyle = "red";
 		ctx.fillText("FPS: "+fps,1,16);
 		ctx.fillText("By: Evan Morschhauser",width-160,16);
-		ctx.fillText("Version 1.2",width-76,31);
+		//ctx.fillText("Version 2.0",width-76,31);//im not qualified to give out version numbers
 		ctx.fillText('Press "~" button for debug mode',width-212,46);
 	if (debug==true) {
 		ctx.fillText(debugAction,1,height-46);
 		ctx.fillText(bodies.length + " Bodies",1,height-16);
 		ctx.fillText("Accuracy = "+(3600/dt)*100,1,height-31);
 		for (i = 0; i < bodies.length; i++) {
-		ctx.beginPath();
-		ctx.moveTo(bodies[i].x,bodies[i].y);
-		ctx.lineTo(bodies[i].x+((bodies[i].vx*1000000)),bodies[i].y+(bodies[i].vy*1000000));
-		ctx.strokeStyle="green";
-		ctx.stroke();
+			ctx.beginPath();
+			ctx.moveTo(bodies[i].pos.x,bodies[i].pos.y);
+			ctx.lineTo(bodies[i].pos.x+((bodies[i].vel.x*1000000)),bodies[i].pos.y+(bodies[i].vel.y*1000000));
+			ctx.strokeStyle="green";
+			ctx.stroke();
 		};
 	}
 	if (!bMouseDown) {
