@@ -7,3 +7,8 @@ Adaptation of an earlier Nbody simulation of mine. Just edited it real quickly t
   -You can alter variables of the galaxy while holding down the right mouse button as well  
 +Middle click/drag to fill the entire screen with particles  
   -You can alter variables of the particles while holding down the middle mouse button
+  
+Upcoming changes:  
+Complete overhaul of the UI  
+Creating classes for particles  
+Adjustments in collision resolution
