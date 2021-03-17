@@ -33,7 +33,7 @@ function Collision(i,j)	{
 	bodies[j].x-=temp2.x;//think about flipping the sign on temp2 so this can be an adding function
 	bodies[j].y-=temp2.y;
 	//total velocity invloved in the collision
-	var v = subtract((bodies[i].vel,bodies[j].vel);
+	var v = subtract(bodies[i].vel,bodies[j].vel);
 	//the normalized velocity i think
 	var vn = dot(v,normalize(mtd));
 	//i guess thjat cant be less than 0?..
